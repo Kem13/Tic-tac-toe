@@ -7,7 +7,7 @@
 
     nextTurn() {
         if(this.turn == "X") {
-            this.turn =  "O";
+            this.turn =  "O"
         } else  {
             this.turn = "X"
         }
@@ -15,7 +15,7 @@
 
     makeMove(i) {
 
-        if(this.endOfGame) {
+        if(this.endOfGame()) {
             return;
         }
         if(this.board[i]) {
@@ -29,7 +29,7 @@
             this.nextTurn();
         }
         
-        console.log("this is the winner:", winningCombination)
+        console.log("this is the winner:", winningCombinations)
     }
 
     findWinningCombinations (){
@@ -45,7 +45,7 @@
 
         ]
 
-        for(const combination of winningCombinations) {
+        for(const combination of winningCombination) {
             const [a,b,c] = combination;
 
             if (this.board[a] &&
@@ -59,6 +59,7 @@
     }
 
     endOfGame() {
+        console.log(this.endOfGame)
         let winningCombination = this.findWinningCombinations();
         if(winningCombination) {
             return true;
